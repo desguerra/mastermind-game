@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/desguerra/mastermind-game/issues"
   },
-  "homepage": "https://github.com/desguerra/mastermind-game#readme"
+  "homepage": "https://github.com/desguerra/mastermind-game#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
 }
