@@ -1,6 +1,6 @@
-import { React } from 'react';
+import React from 'react';
 
-function Game() {
+const Game = ({ decrementNumGuess }) => {
 
   const handleChange = e => {
     const numFields = 4;
@@ -32,16 +32,17 @@ function Game() {
       <div>
         Guess the number combination!
       </div>
-      
+
       <form>
         <input type='text' id='first' name='guess-1' maxLength={1} minLength={0} size='1' onChange={handleChange} autoFocus />
         <input type='text' id='second' name='guess-2' maxLength={1} minLength={0} size='1' onChange={handleChange} />
         <input type='text' id='third' name='guess-3' maxLength={1} minLength={0} size='1' onChange={handleChange} />
         <input type='text' id='fourth' name='guess-4' maxLength={1} minLength={0} size='1' onChange={handleChange} />
 
-        <button type='submit'>guess!</button>
+        <button type='button' onClick={decrementNumGuess}>guess!</button>
       </form>
     </div>
+
   );
 }
 

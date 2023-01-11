@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Feedback() {
+const Feedback = () => {
   return (
     <div>
       current feedback
