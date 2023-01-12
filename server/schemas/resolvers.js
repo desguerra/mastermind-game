@@ -1,7 +1,9 @@
+const { History } = require('../models');
+
 const resolvers = {
   Query: {
-    helloWorld: () => {
-      return 'Hello world!';
+    history: () => {
+      return History.find();
     }
   }
 };
