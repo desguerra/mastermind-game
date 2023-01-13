@@ -19,10 +19,26 @@ const typeDefs = gql`
     historyId: Int
     feedbackBody: String
   }
+  input GuessInput {
+    _id: ID
+    historyId: Int
+    guessBody: String
+  }
+  input FeedbackInput {
+    _id: ID
+    historyId: Int
+    feedbackBody: String
+  }
+
   type Query {
     histories: [History]
     guesses(historyId: String): [Guess]
     feedbacks: [Feedback]
+  }
+  type Mutation {
+    addHistory(historyId: Int!): History
+    addGuess(historyId: Int!, guessBody: String!): Guess
+    addFeedback(historyId: Int!, feedbackBody: String!): Feedback
   }
 `;
 

@@ -4,7 +4,8 @@ const feedbackSchema = new Schema(
   {
     historyId: {
       type: Number,
-      required: true
+      required: true,
+      unique: true
     },
     feedbackBody: {
       type: String,

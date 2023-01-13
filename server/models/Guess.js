@@ -4,7 +4,8 @@ const guessSchema = new Schema(
   {
     historyId: {
       type: Number,
-      required: true
+      required: true,
+      unique: true
     },
     guessBody: {
       type: String,
