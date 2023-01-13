@@ -11,7 +11,6 @@ const History = () => {
   just created. if data is undefined, then save an empty 
   array to the history component */
   const history = data?.histories || [];
-  console.log(history);
 
   if (!history.length) {
     return <div>
@@ -27,10 +26,10 @@ const History = () => {
         history.map(historyItem => (
           <div>
             <p>
-              {historyItem.historyId + 1}. {historyItem.guess.guessBody}
+              {historyItem.historyId + 1}. {historyItem.historyId}
             </p>
             <p>
-              {historyItem.feedback.feedbackBody}
+              {historyItem.historyId}
             </p>
           </div>
         )) : <p>No history yet</p>}
