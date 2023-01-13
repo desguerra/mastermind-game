@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_HISTORY = gql`
-  query history {
+  query histories {
     history {
       _id
       guess {

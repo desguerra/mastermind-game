@@ -1,9 +1,18 @@
-const { History } = require('../models');
+const { History, Guess, Feedback } = require('../models');
 
 const resolvers = {
   Query: {
-    history: () => {
-      return History.find();
+    histories: async () => {
+      return History.find()
+        .populate('guess')
+        .populate('feedback');
+    },
+    guesses: async (parent, { historyId }) => {
+      const params = historyId ? { historyId } : {};
+      return Guess.find(params);
+    },
+    feedbacks: async () => {
+      return Feedback.find();
     }
   }
 };

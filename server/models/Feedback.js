@@ -1,7 +1,11 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const feedbackSchema = new Schema(
   {
+    historyId: {
+      type: Number,
+      required: true
+    },
     feedbackBody: {
       type: String,
       required: true
@@ -14,4 +18,6 @@ const feedbackSchema = new Schema(
   }
 );
 
-module.exports = feedbackSchema;
+const Feedback = model('Feedback', feedbackSchema);
+
+module.exports = Feedback;

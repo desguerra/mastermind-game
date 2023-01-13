@@ -1,15 +1,24 @@
 const { Schema, model } = require('mongoose');
-const feedbackSchema = require('./Feedback');
-const guessSchema = require('./Guess');
 
 const historySchema = new Schema(
   {
-    guess: [guessSchema],
-    feedback: [feedbackSchema]
+    historyId: {
+      type: Number,
+      required: true,
+      unique: true
+    },
+    guess: {
+      type: Schema.Types.ObjectId,
+      ref: 'Guess'
+    },
+    feedback: {
+      type: Schema.Types.ObjectId,
+      ref: 'Feedback'
+    }
   },
   {
     toJSON: {
-      getters: true
+      getters: false
     }
   }
 );

@@ -3,21 +3,26 @@ const { gql } = require('apollo-server-express');
 
 // create our typeDefs
 const typeDefs = gql`
-  type HistoryItems {
+  type History {
     _id: ID
-    guess: [Guess]
-    feedback: [Feedback]
+    historyId: Int
+    guess: Guess
+    feedback: Feedback
   }
   type Guess {
     _id: ID
+    historyId: Int
     guessBody: String
   }
   type Feedback {
     _id: ID
+    historyId: Int
     feedbackBody: String
   }
   type Query {
-    history: [HistoryItems]
+    histories: [History]
+    guesses(historyId: String): [Guess]
+    feedbacks: [Feedback]
   }
 `;
 

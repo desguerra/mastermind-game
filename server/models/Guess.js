@@ -1,10 +1,14 @@
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const guessSchema = new Schema(
   {
+    historyId: {
+      type: Number,
+      required: true
+    },
     guessBody: {
       type: String,
-      required: 'You need to leave a full guess!'
+      required: true
     }
   },
   {
@@ -14,4 +18,6 @@ const guessSchema = new Schema(
   }
 );
 
-module.exports = guessSchema;
+const Guess = model('Guess', guessSchema);
+
+module.exports = Guess;
