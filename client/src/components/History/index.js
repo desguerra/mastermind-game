@@ -10,12 +10,30 @@ const History = () => {
   /* if data exists, store it in the history constant we 
   just created. if data is undefined, then save an empty 
   array to the history component */
-  const history = data?.history || [];
+  const history = data?.histories || [];
   console.log(history);
+
+  if (!history.length) {
+    return <div>
+    <h2>history</h2>
+    <p>No history yet</p>
+    </div>;
+  }
 
   return (
     <div>
-      <div></div>
+      <h2>history</h2>
+      {history &&
+        history.map(historyItem => (
+          <div>
+            <p>
+              {historyItem.historyId}. {historyItem.guess.guessBody}
+            </p>
+            <p>
+              {historyItem.feedback.feedbackBody}
+            </p>
+          </div>
+        ))}
     </div>
   );
 }
