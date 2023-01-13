@@ -23,17 +23,17 @@ const History = () => {
   return (
     <div>
       <h2>history</h2>
-      {history &&
+      {history ?
         history.map(historyItem => (
           <div>
             <p>
-              {historyItem.historyId}. {historyItem.guess.guessBody}
+              {historyItem.historyId + 1}. {historyItem.guess.guessBody}
             </p>
             <p>
               {historyItem.feedback.feedbackBody}
             </p>
           </div>
-        ))}
+        )) : <p>No history yet</p>}
     </div>
   );
 }
