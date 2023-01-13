@@ -26,10 +26,10 @@ const History = () => {
         history.map(historyItem => (
           <div>
             <p>
-              {historyItem.historyId + 1}. {historyItem.historyId}
+              {historyItem.historyId + 1}. {historyItem.guess.guessBody}
             </p>
             <p>
-              {historyItem.historyId}
+              {historyItem.feedback.feedbackBody}
             </p>
           </div>
         )) : <p>No history yet</p>}

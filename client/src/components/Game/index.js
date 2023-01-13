@@ -5,7 +5,7 @@ const Game = ({ decrementNumGuess, handleGameFormChange, handleFormSubmit }) => 
   return (
     <div>
       <div>
-        Guess the number combination!
+        Guess the 4-digit number combination!
       </div>
 
       <form onSubmit={handleFormSubmit}>
