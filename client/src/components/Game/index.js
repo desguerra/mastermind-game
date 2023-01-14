@@ -9,7 +9,7 @@ const Game = ({ decrementNumGuess, handleGameFormChange, handleFormSubmit }) => 
       </div>
 
       <form onSubmit={handleFormSubmit}>
-        <input type='text' id='guess' name='guessBody' maxLength={4} minLength={0} size='4' onChange={handleGameFormChange} value={handleGameFormChange.guessBody} autoFocus />
+        <input type='text' id='guessBody' name='guessBody' maxLength={4} minLength={0} size='4' onChange={handleGameFormChange} value={handleGameFormChange.guessBody} autoFocus />
 
         <button type='submit' onClick={decrementNumGuess}>guess!</button>
       </form>

@@ -24,12 +24,12 @@ const History = () => {
       <h2>history</h2>
       {history ?
         history.map(historyItem => (
-          <div>
+          <div key={historyItem._id}>
             <p>
-              {historyItem.historyId + 1}. {historyItem.guess.guessBody}
+              {historyItem.historyId + 1}. {historyItem.historyId}
             </p>
             <p>
-              {historyItem.feedback.feedbackBody}
+              {historyItem.historyId}
             </p>
           </div>
         )) : <p>No history yet</p>}

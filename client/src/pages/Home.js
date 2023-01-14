@@ -12,14 +12,25 @@ const Home = () => {
 
   /* DECREMENT NUMBER OF GUESSES */
   const [guessesLeft, setGuessesLeft] = useState(10)
+  const [idVar, setIdVar] = useState(2)
+  
   const decrementNumGuess = () => {
     if (guessesLeft > 0) {
       setGuessesLeft(guessesLeft => guessesLeft - 1);
     }
+    if (idVar < 10) {
+      setIdVar(idVar => idVar + 1);
+    }
+
+    const guessBodyId = document.getElementById('guessBody');
+
+    const feedbackGuessId = document.getElementById('feedbackGuess');
+    feedbackGuessId.textContent = guessBodyId.value;
+
+    guessBodyId.value = '';
   }
 
   /* GAME FORM STATE */
-  let idVar = 10;
   const [historyFormState, setHistoryFormState] = useState({ historyId: 0 });
   const [gameFormState, setGameFormState] = useState({ guessBody: '', historyId: idVar });
   const [feedbackFormState, setFeedbackFormState] = useState({ feedbackBody: '', historyId: idVar });
@@ -79,7 +90,7 @@ const Home = () => {
 
       <Game decrementNumGuess={decrementNumGuess} handleGameFormChange={handleGameFormChange} handleFormSubmit={handleFormSubmit} />
 
-      <Feedback />
+      <Feedback gameFormState={gameFormState} />
 
       <History />
 		</div>
