@@ -3,7 +3,6 @@ import Header from '../components/Header';
 import Game from '../components/Game';
 import GuessesLeft from '../components/GuessesLeft';
 import Feedback from '../components/Feedback';
-import History from '../components/History';
 
 import { useMutation } from '@apollo/client';
 import { ADD_HISTORY, ADD_GUESS, ADD_FEEDBACK } from '../utils/mutations';
@@ -90,9 +89,7 @@ const Home = () => {
 
       <Game decrementNumGuess={decrementNumGuess} handleGameFormChange={handleGameFormChange} handleFormSubmit={handleFormSubmit} />
 
-      <Feedback gameFormState={gameFormState} />
-
-      <History />
+      <Feedback />
 		</div>
 	);
 };

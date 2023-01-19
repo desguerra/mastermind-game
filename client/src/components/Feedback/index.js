@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Feedback = ({ gameFormState }) => {
+const Feedback = () => {
 
   /* FIXME: conditionally render feedback once user guesses */
   const guessed = true;
