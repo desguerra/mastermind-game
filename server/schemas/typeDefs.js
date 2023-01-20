@@ -19,6 +19,10 @@ const typeDefs = gql`
     historyId: Int
     feedbackBody: String
   }
+  type Answer {
+    _id: ID
+    answer: String
+  }
   input GuessInput {
     _id: ID
     historyId: Int
@@ -34,6 +38,7 @@ const typeDefs = gql`
     histories: [History]
     guesses(historyId: String): [Guess]
     feedbacks: [Feedback]
+    answer: Answer
   }
   type Mutation {
     addHistory(historyId: Int!): History
