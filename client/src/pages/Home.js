@@ -38,6 +38,8 @@ const Home = () => {
   const [addGuess, { errorGuess }] = useMutation(ADD_GUESS);
   const [addFeedback, { errorFeedback }] = useMutation(ADD_FEEDBACK);
 
+  const [userGuess, setUserGuess] = useState('');
+
   // update state based on form input changes
   const handleGameFormChange = (event) => {
     const { name, value } = event.target;
@@ -64,6 +66,8 @@ const Home = () => {
 
     console.log(gameFormState);
 
+    setUserGuess(gameFormState.guessBody);
+
     // use try/catch instead of promises to handle errors
     try {
       await addHistory({
@@ -89,7 +93,7 @@ const Home = () => {
 
       <Game decrementNumGuess={decrementNumGuess} handleGameFormChange={handleGameFormChange} handleFormSubmit={handleFormSubmit} />
 
-      <Feedback />
+      <Feedback userGuess={userGuess} />
 		</div>
 	);
 };
