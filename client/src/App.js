@@ -1,7 +1,6 @@
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
 import Home from './pages/Home';
-import History from './pages/History';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -23,10 +22,6 @@ function App() {
           <Route
             path="/"
             element={<Home />}
-          />
-          <Route
-            path="/history"
-            element={<History />}
           />
         </Routes>
       </Router>

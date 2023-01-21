@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { pluralize } from '../../utils/helpers';
 
 const Feedback = ( { userGuess } ) => {
 
@@ -36,7 +37,7 @@ const Feedback = ( { userGuess } ) => {
     if (number === 0 && location === 0) {
       feedback = 'All incorrect.';
     } else {
-      feedback = `${number} correct number(s) and ${location} correct location(s)`;
+      feedback = `${number} correct ${pluralize('number', number)} and ${location} correct ${pluralize('location', location)}`;
     }
   }
 

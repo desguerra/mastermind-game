@@ -1,38 +1,69 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import { useQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 import { QUERY_HISTORY } from '../../utils/queries';
+import { idbPromise } from '../../utils/helpers';
+import HistoryItem from '../HistoryItem';
+import { useStoreContext } from '../../utils/GlobalState';
+import { TOGGLE_HISTORY, ADD_MULTIPLE_TO_HISTORY } from '../../utils/actions';
 
 const History = () => {
 
-  const { loading, data } = useQuery(QUERY_HISTORY);
+  const [state, dispatch] = useStoreContext();
+	const [getHistory, { data }] = useLazyQuery(QUERY_HISTORY);
 
-  /* if data exists, store it in the history constant we 
-  just created. if data is undefined, then save an empty 
-  array to the history component */
-  const history = data?.histories || [];
+  useEffect(() => {
+		async function getList() {
+			const history = await idbPromise('history', 'get');
+			dispatch({ type: ADD_MULTIPLE_TO_HISTORY, guesses: [...history] });
+		}
 
-  if (!history.length) {
-    return <div>
-    <h2>history</h2>
-    <p>No history yet</p>
-    </div>;
-  }
+		if (!state.history.length) {
+			getList();
+		}
+	}, [state.history.length, dispatch]);
+
+  function toggleHistory() {
+		dispatch({ type: TOGGLE_HISTORY });
+	}
+
+  if (!state.historyOpen) {
+		return (
+			<div onClick={toggleHistory}>
+				<span>
+					history
+				</span>
+			</div>
+		);
+	}
 
   return (
     <div>
+      <div onClick={toggleHistory}>
+				[close]
+			</div>
       <h2>history</h2>
-      {history ?
-        history.map(historyItem => (
-          <div key={historyItem._id}>
-            <p>
-              {historyItem.historyId + 1}. {historyItem.historyId}
-            </p>
-            <p>
-              {historyItem.historyId}
-            </p>
+      
+      {state.history.length ? (
+				<div>
+					{state.history.map((item) => (
+						<HistoryItem key={item._id} item={item} />
+					))}
+          <div>
+
+						
           </div>
-        )) : <p>No history yet</p>}
+        </div>
+			) : (
+				<h3>
+					<span role="img" aria-label="shocked">
+						😱
+					</span>
+					You haven't made any guesses yet!
+				</h3>
+			)}
+
+
     </div>
   );
 }
