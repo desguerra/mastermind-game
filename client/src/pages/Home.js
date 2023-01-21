@@ -12,7 +12,7 @@ const Home = () => {
 
   /* DECREMENT NUMBER OF GUESSES */
   const [guessesLeft, setGuessesLeft] = useState(10)
-  const [idVar, setIdVar] = useState(2)
+  const [idVar, setIdVar] = useState(0)
   
   const decrementNumGuess = () => {
     if (guessesLeft > 0) {

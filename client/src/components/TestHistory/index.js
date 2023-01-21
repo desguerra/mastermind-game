@@ -5,12 +5,24 @@ import { QUERY_HISTORY } from '../../utils/queries';
 
 const TestHistory = () => {
 
-  const [historyOpen, setHistoryOpen] = useState(false);
-	const {loading, data } = useQuery(QUERY_HISTORY);
+  let [historyOpen, setHistoryOpen] = useState(false);
+  const {loading, data } = useQuery(QUERY_HISTORY);
 
   const history = data?.histories || [];
+  const [historyState, setHistoryState] = useState([]);
 
   console.log(history);
+  console.log(historyState);
+
+  useEffect(() => {
+		async function getHistory() {
+      setHistoryState(history);
+		}
+
+		if (!historyState.length) {
+			getHistory();
+		}
+	});
 
   function toggleHistory() {
 		historyOpen = setHistoryOpen(!historyOpen);
@@ -33,9 +45,9 @@ const TestHistory = () => {
 			</div>
       <h2>history</h2>
       
-      {history.length ? (
+      {historyState.length ? (
 				<div>
-					{history.map((item) => (
+					{historyState.map((item) => (
 						<div key={item._id}>
               <p>{item.historyId + 1}. {item.guess.guessBody}</p>
               <p>{item.feedback.feedbackBody}</p>
@@ -43,7 +55,6 @@ const TestHistory = () => {
 					))}
           <div>
 
-						
           </div>
         </div>
 			) : (
