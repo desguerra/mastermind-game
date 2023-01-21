@@ -9,6 +9,7 @@
 Technologies used:
 
 - MERN stack (MongoDB, Express.js, React JS, Node)
+- Heroku for deployment
 - GraphQL
 - Apollo Server
 - _[random.org API](https://www.random.org/clients/http/api/)_
