@@ -3,8 +3,10 @@ import React from 'react';
 const GuessesLeft = ({ guessesLeft }) => {
   return (
     <div>
-      Number of guesses left:
-      <span> {guessesLeft}</span>
+      <strong>
+        Number of guesses left:
+        <span className='has-text-link'> {guessesLeft}</span>
+      </strong>
     </div>
   );
 }

@@ -13,6 +13,10 @@ code {
     monospace;
 }
 
+.center {
+  text-align: center;
+}
+
 .description {
   font-weight: bold;
 }

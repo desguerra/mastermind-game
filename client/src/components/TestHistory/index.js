@@ -41,12 +41,10 @@ const TestHistory = () => {
 		return (
       <>
         <div>
-          <button onClick={clearHistory}>clear history and restart game</button>
+          <button className='button is-light' onClick={clearHistory}>clear history and restart game</button>
         </div>
-        <div onClick={toggleHistory}>
-          <span>
-            <strong>[click to see history]</strong>
-          </span>
+        <div>
+          <button className='button is-dark' onClick={toggleHistory}>view history</button>
         </div>
       </>
 		);
@@ -55,12 +53,12 @@ const TestHistory = () => {
   return (
     <div>
       <div>
-        <button onClick={clearHistory}>clear history and restart game</button>
+        <button className='button is-light' onClick={clearHistory}>clear history and restart game</button>
       </div>
-      <div onClick={toggleHistory}>
-				<strong>[close]</strong>
+      <div>
+        <button className='button is-dark' onClick={toggleHistory}>close history</button>
 			</div>
-      <h2>history</h2>
+      <h2 className='title is-2'>history</h2>
       
       {historyState.length ? (
 				<div>

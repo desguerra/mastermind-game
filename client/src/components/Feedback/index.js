@@ -16,6 +16,8 @@ const Feedback = ( { userGuess } ) => {
     fetchData();
   },[])
 
+  console.log('Correct answer is:', computerGuess);
+
   if (userGuess === '') {
     feedback = '';
   } else if (computerGuess === userGuess) {
@@ -47,7 +49,7 @@ const Feedback = ( { userGuess } ) => {
       <p>Correct answer: {computerGuess}</p> */}
 
 
-      <p>{feedback}</p>
+      <p className='has-text-link'>{feedback}</p>
     </div>
   );
 }

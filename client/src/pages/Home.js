@@ -65,7 +65,7 @@ const Home = () => {
   const handleFormSubmit = async event => {
     event.preventDefault();
 
-    console.log(gameFormState);
+    // console.log(gameFormState);
 
     setUserGuess(gameFormState.guessBody);
 
@@ -87,7 +87,7 @@ const Home = () => {
   };
 
 	return (
-		<div>
+		<div className='container'>
       <Header />
 
       <GuessesLeft guessesLeft={guessesLeft} />
