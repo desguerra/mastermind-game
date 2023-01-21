@@ -11,7 +11,7 @@ Technologies used:
 - MERN stack (MongoDB, Express.js, React JS, Node)
 - GraphQL
 - Apollo Server
-- _[random.org API](https://www.random.org/clients/http/api/)
+- _[random.org API](https://www.random.org/clients/http/api/)_
 - Bulma for CSS
 
 ## Table of Contents
