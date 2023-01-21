@@ -1,4 +1,4 @@
-# mastermind game
+# Mastermind Game
 
 ## Description
 
