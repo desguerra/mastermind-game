@@ -28,3 +28,11 @@ export const ADD_FEEDBACK = gql`
     }
   }
 `;
+
+export const DELETE_HISTORY = gql`
+  mutation deleteHistory {
+    deleteHistory {
+      _id
+    }
+  }
+`;

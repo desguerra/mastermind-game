@@ -39,7 +39,12 @@ const resolvers = {
       );
     
       return feedback;
-    }
+    },
+    deleteHistory: async (parent, args) => {
+      await History.deleteMany({});
+      await Guess.deleteMany({});
+      await Feedback.deleteMany({});
+    },
   }
 };
 

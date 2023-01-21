@@ -14,7 +14,7 @@ const guessSchema = new Schema(
   },
   {
     toJSON: {
-      getters: false
+      getters: true
     }
   }
 );

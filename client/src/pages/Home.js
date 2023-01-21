@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Game from '../components/Game';
 import GuessesLeft from '../components/GuessesLeft';
@@ -22,12 +22,12 @@ const Home = () => {
       setIdVar(idVar => idVar + 1);
     }
 
-    const guessBodyId = document.getElementById('guessBody');
+    //const guessBodyId = document.getElementById('guessBody');
 
-    const feedbackGuessId = document.getElementById('feedbackGuess');
-    feedbackGuessId.textContent = guessBodyId.value;
+    //const feedbackGuessId = document.getElementById('feedbackGuess');
+    //feedbackGuessId.textContent = guessBodyId.value;
 
-    guessBodyId.value = '';
+    //guessBodyId.value = '';
   }
 
   /* GAME FORM STATE */
@@ -57,7 +57,7 @@ const Home = () => {
 
     setFeedbackFormState({
       ...feedbackFormState,
-      historyId: idVar, feedbackBody: 'set feedbackBody'
+      historyId: idVar, feedbackBody: 'guess feedback goes here'
     });
   };
 

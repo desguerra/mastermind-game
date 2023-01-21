@@ -43,8 +43,8 @@ const Feedback = ( { userGuess } ) => {
 
   return (
     <div>
-      <p>User guessed: {userGuess}</p>
-      <p>Correct answer: {computerGuess}</p>
+      {/* <p>User guessed: {userGuess}</p>
+      <p>Correct answer: {computerGuess}</p> */}
 
 
       <p>{feedback}</p>

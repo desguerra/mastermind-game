@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useMutation } from '@apollo/client';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_HISTORY } from '../../utils/queries';
+import { DELETE_HISTORY } from '../../utils/mutations';
 
 const TestHistory = () => {
+
+  const [deleteHistory, { errorHistory }] = useMutation(DELETE_HISTORY);
 
   let [historyOpen, setHistoryOpen] = useState(false);
   const {loading, data } = useQuery(QUERY_HISTORY);
@@ -28,18 +32,31 @@ const TestHistory = () => {
 		historyOpen = setHistoryOpen(!historyOpen);
 	}
 
+  function clearHistory() {
+		deleteHistory();
+    window.location.reload(false);
+	}
+
   if (!historyOpen) {
 		return (
-			<div onClick={toggleHistory}>
-				<span>
-				  <strong>[click to see history]</strong>
-				</span>
-			</div>
+      <>
+        <div>
+          <button onClick={clearHistory}>clear history and restart game</button>
+        </div>
+        <div onClick={toggleHistory}>
+          <span>
+            <strong>[click to see history]</strong>
+          </span>
+        </div>
+      </>
 		);
 	}
 
   return (
     <div>
+      <div>
+        <button onClick={clearHistory}>clear history and restart game</button>
+      </div>
       <div onClick={toggleHistory}>
 				<strong>[close]</strong>
 			</div>
@@ -49,8 +66,8 @@ const TestHistory = () => {
 				<div>
 					{historyState.map((item) => (
 						<div key={item._id}>
-              <p>{item.historyId + 1}. {item.guess.guessBody}</p>
-              <p>{item.feedback.feedbackBody}</p>
+              <p>{item.historyId + 1}. You guessed <strong>{item.guess.guessBody.length ? item.guess.guessBody : <span>user guess</span>}</strong></p>
+              <p><strong><i>{item.feedback.feedbackBody.length ? item.feedback.feedbackBody : <span>game feedback</span>}</i></strong></p>
             </div>
 					))}
           <div>

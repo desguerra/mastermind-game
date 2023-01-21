@@ -44,6 +44,7 @@ const typeDefs = gql`
     addHistory(historyId: Int!): History
     addGuess(historyId: Int!, guessBody: String!): Guess
     addFeedback(historyId: Int!, feedbackBody: String!): Feedback
+    deleteHistory: History
   }
 `;
 
